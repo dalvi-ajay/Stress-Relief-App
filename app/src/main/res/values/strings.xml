@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">Stillness</string>
+
+    <!-- Navigation -->
+    <string name="nav_tasks">Tasks</string>
+    <string name="nav_breathe">Breathe</string>
+    <string name="nav_unwind">Unwind</string>
+
+    <!-- Tasks Screen -->
+    <string name="tasks_greeting_title">Take a quiet moment</string>
+    <string name="tasks_greeting_subtitle">Small, gentle resets for a calmer mind</string>
+    <string name="stat_tasks_done">Tasks done</string>
+    <string name="stat_breath_sessions">Breath sessions</string>
+    <string name="stat_mindful_minutes">Calm mins</string>
+    <string name="mood_prompt">How are you feeling right now?</string>
+    <string name="section_guided_activities">Guided Relief Activities</string>
+    <string name="section_quick_checklist">Daily Stress Reset Checklist</string>
+    <string name="add_task_button">Add task</string>
+    <string name="add_task_dialog_title">Add a gentle task</string>
+    <string name="add_task_placeholder">e.g. Step outside for 2 minutes</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="reset_checklist">Reset day</string>
+    <string name="quick_breathe_cta">Start Breathing</string>
+
+    <!-- Grounding Modal / Sheet -->
+    <string name="grounding_title">5-4-3-2-1 Sensory Grounding</string>
+    <string name="grounding_subtitle">Anchor yourself in the present moment</string>
+    <string name="grounding_complete">Complete Grounding</string>
+    <string name="grounding_next_step">Next Sense</string>
+    <string name="grounding_done_badge">Grounded</string>
+
+    <!-- Body Release Modal / Sheet -->
+    <string name="release_title">Shoulder &amp; Jaw Release</string>
+    <string name="release_subtitle">Let go of stored physical tension</string>
+    <string name="release_complete">Finish Release</string>
+    <string name="release_start_timer">Hold 10s</string>
+
+    <!-- Breathe Screen -->
+    <string name="breathe_title">Mindful Breathing</string>
+    <string name="breathe_subtitle">Follow the expanding and contracting circles</string>
+    <string name="breathe_pattern_label">Breathing Rhythm</string>
+    <string name="breathe_duration_label">Session Length</string>
+    <string name="breathe_haptics_label">Gentle phase haptics</string>
+    <string name="breathe_start">Begin Session</string>
+    <string name="breathe_pause">Pause</string>
+    <string name="breathe_resume">Resume</string>
+    <string name="breathe_reset">Reset</string>
+    <string name="breathe_ready">Ready</string>
+    <string name="breathe_phase_inhale">Breathe In</string>
+    <string name="breathe_phase_hold">Hold Gently</string>
+    <string name="breathe_phase_exhale">Breathe Out</string>
+    <string name="breathe_phase_rest">Soft Pause</string>
+    <string name="breathe_session_complete_title">Session Complete</string>
+    <string name="breathe_session_complete_body">You gave yourself a calm pause. Notice how your shoulders feel now.</string>
+    <string name="breathe_cycles_label">Cycles</string>
+
+    <!-- Unwind Screen -->
+    <string name="unwind_title">Tactile Unwind</string>
+    <string name="unwind_subtitle">Slow down busy thoughts with gentle interaction</string>
+    <string name="unwind_mode_ripples">Still Pond</string>
+    <string name="unwind_mode_bubbles">Worry Pop</string>
+    <string name="unwind_mode_affirmations">Kind Prompts</string>
+    <string name="pond_hint">Tap anywhere on the water to send slow, soothing ripples</string>
+    <string name="bubbles_hint">Tap each floating bubble to release a worry</string>
+    <string name="bubbles_refill">Float new bubbles</string>
+    <string name="affirmation_next">Another gentle thought</string>
+    <string name="haptics_on">Haptics On</string>
+    <string name="haptics_off">Haptics Off</string>
+</resources>

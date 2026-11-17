@@ -1,0 +1,6 @@
+{
+  "name": "Stillness",
+  "description": "A calming stress relief app with mindful breathing circles, sensory grounding, and tactile relaxation activities.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
