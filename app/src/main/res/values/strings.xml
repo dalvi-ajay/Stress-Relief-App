@@ -67,4 +67,21 @@
     <string name="affirmation_next">Another gentle thought</string>
     <string name="haptics_on">Haptics On</string>
     <string name="haptics_off">Haptics Off</string>
+
+    <!-- Voice Assistant Screen -->
+    <string name="nav_voice">Voice</string>
+    <string name="voice_title">Calm Voice Guide</string>
+    <string name="voice_subtitle">Speak or type how you feel for gentle guidance</string>
+    <string name="voice_auto_speak_on">Voice On</string>
+    <string name="voice_auto_speak_off">Voice Off</string>
+    <string name="voice_tap_to_speak">Tap microphone to speak</string>
+    <string name="voice_listening">Listening… tap to stop</string>
+    <string name="voice_thinking">Thinking calmly…</string>
+    <string name="voice_speaking">Speaking… tap to stop</string>
+    <string name="voice_input_placeholder">Or type what is on your mind…</string>
+    <string name="voice_send">Send</string>
+    <string name="voice_clear_chat">New chat</string>
+    <string name="voice_permission_needed">Microphone permission lets you speak directly to your calm guide. You can also type anytime below.</string>
+    <string name="voice_grant_mic">Allow Mic</string>
+    <string name="voice_retry">Retry</string>
 </resources>

@@ -29,25 +29,27 @@ class ExampleRobolectricTest {
     }
 
     @Test
-    fun navigateAcrossAllTabsAndStartBreathing() {
+    fun navigateAcrossAllTabsIncludingVoiceGuide() {
         // Tasks tab
         composeRule.onNodeWithText("Take a quiet moment").assertIsDisplayed()
 
-        // Navigate to Breathe tab
+        // Breathe tab
         composeRule.onNodeWithTag("nav_tab_breathe").performClick()
         composeRule.onNodeWithText("Mindful Breathing").assertIsDisplayed()
         composeRule.onNodeWithTag("breathing_circle_canvas").assertIsDisplayed()
-
-        // Start session and verify active phase
         composeRule.onNodeWithTag("breathe_play_pause_button").performClick()
         composeRule.onNodeWithText("Breathe In").assertIsDisplayed()
-
-        // Pause session cleanly
         composeRule.onNodeWithTag("breathe_play_pause_button").performClick()
 
-        // Navigate to Unwind tab
+        // Unwind tab
         composeRule.onNodeWithTag("nav_tab_unwind").performClick()
         composeRule.onNodeWithText("Tactile Unwind").assertIsDisplayed()
         composeRule.onNodeWithTag("still_pond_surface").assertIsDisplayed()
+
+        // Voice tab
+        composeRule.onNodeWithTag("nav_tab_voice").performClick()
+        composeRule.onNodeWithText("Calm Voice Guide").assertIsDisplayed()
+        composeRule.onNodeWithTag("voice_mic_orb_button").assertIsDisplayed()
+        composeRule.onNodeWithTag("voice_text_input").assertIsDisplayed()
     }
 }

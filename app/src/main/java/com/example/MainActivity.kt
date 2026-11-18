@@ -20,9 +20,11 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Air
 import androidx.compose.material.icons.outlined.CheckCircle
+import androidx.compose.material.icons.outlined.Mic
 import androidx.compose.material.icons.outlined.WaterDrop
 import androidx.compose.material.icons.rounded.Air
 import androidx.compose.material.icons.rounded.CheckCircle
+import androidx.compose.material.icons.rounded.Mic
 import androidx.compose.material.icons.rounded.WaterDrop
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -50,18 +52,22 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.ai.configureAppCheck
 import com.example.data.CalmPreferencesRepository
 import com.example.ui.BreathingViewModel
 import com.example.ui.TasksViewModel
 import com.example.ui.UnwindViewModel
+import com.example.ui.VoiceAssistantViewModel
 import com.example.ui.screens.BreathingScreen
 import com.example.ui.screens.TasksScreen
 import com.example.ui.screens.UnwindScreen
+import com.example.ui.screens.VoiceAssistantScreen
 import com.example.ui.theme.StillnessTheme
 
 const val ROUTE_TASKS = "tasks"
 const val ROUTE_BREATHE = "breathe"
 const val ROUTE_UNWIND = "unwind"
+const val ROUTE_VOICE = "voice"
 
 private enum class StillnessDestination(
     val route: String,
@@ -91,11 +97,22 @@ private enum class StillnessDestination(
         unselectedIcon = Icons.Outlined.WaterDrop,
         testTag = "nav_tab_unwind",
     ),
+    VOICE(
+        route = ROUTE_VOICE,
+        labelRes = R.string.nav_voice,
+        selectedIcon = Icons.Rounded.Mic,
+        unselectedIcon = Icons.Outlined.Mic,
+        testTag = "nav_tab_voice",
+    ),
 }
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Configure Firebase App Check with launch intent before any UI or ViewModels.
+        configureAppCheck(this, intent)
+
         enableEdgeToEdge()
         setContent {
             StillnessTheme {
@@ -113,6 +130,7 @@ fun StillnessAppRoot() {
     val tasksViewModel: TasksViewModel = viewModel(factory = TasksViewModel.Factory(repository))
     val breathingViewModel: BreathingViewModel = viewModel(factory = BreathingViewModel.Factory(repository))
     val unwindViewModel: UnwindViewModel = viewModel()
+    val voiceAssistantViewModel: VoiceAssistantViewModel = viewModel()
 
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -164,6 +182,7 @@ fun StillnessAppRoot() {
                         tasksViewModel = tasksViewModel,
                         breathingViewModel = breathingViewModel,
                         unwindViewModel = unwindViewModel,
+                        voiceAssistantViewModel = voiceAssistantViewModel,
                     )
                 }
             }
@@ -209,6 +228,7 @@ fun StillnessAppRoot() {
                     tasksViewModel = tasksViewModel,
                     breathingViewModel = breathingViewModel,
                     unwindViewModel = unwindViewModel,
+                    voiceAssistantViewModel = voiceAssistantViewModel,
                     modifier = Modifier.padding(innerPadding),
                 )
             }
@@ -222,6 +242,7 @@ private fun StillnessNavHost(
     tasksViewModel: TasksViewModel,
     breathingViewModel: BreathingViewModel,
     unwindViewModel: UnwindViewModel,
+    voiceAssistantViewModel: VoiceAssistantViewModel,
     modifier: Modifier = Modifier,
 ) {
     NavHost(
@@ -245,6 +266,15 @@ private fun StillnessNavHost(
         }
         composable(ROUTE_UNWIND) {
             UnwindScreen(viewModel = unwindViewModel)
+        }
+        composable(ROUTE_VOICE) {
+            VoiceAssistantScreen(
+                viewModel = voiceAssistantViewModel,
+                onOpenBreathingPattern = { pattern ->
+                    breathingViewModel.selectPattern(pattern)
+                    navigateToDestination(navController, ROUTE_BREATHE)
+                },
+            )
         }
     }
 }
